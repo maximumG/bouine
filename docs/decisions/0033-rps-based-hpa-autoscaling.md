@@ -63,9 +63,9 @@ secondary.
 - Added `rpsTrigger` block rendering a `type: Pods` metric with
   configurable `metricName` (default `bouine_requests_per_second`)
   and `averageValue` (default `100`).
-- Added `scaleUp` behavior with `stabilizationSeconds` and
+- Added `scaleUp` behavior with `stabilizationWindowSeconds` and
   `selectPolicy: Min` to prevent rapid scale-up on transient spikes.
-  The `scaleUpStabilizationSeconds` value was already defined in
+  The `scaleUpStabilizationWindowSeconds` value was already defined in
   values but never rendered by the template.
 - Both `rpsTrigger` and `cpuTrigger` are optional and independent.
   When both are enabled, the HPA uses whichever demands more pods.
@@ -102,8 +102,8 @@ autoscaling:
   cpuTrigger:
     targetType: AverageValue
     averageValue: "3000m"
-  scaleUpStabilizationSeconds: 120
-  scaleDownStabilizationSeconds: 600
+  scaleUpStabilizationWindowSeconds: 120
+  scaleDownStabilizationWindowSeconds: 600
 ```
 
 ## Consequences

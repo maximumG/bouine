@@ -258,7 +258,7 @@ autoscaling:
   cpuTrigger:
     targetType: Utilization
     averageUtilization: 70
-  scaleDownStabilizationSeconds: 300
+  scaleDownStabilizationWindowSeconds: 300
 
 # Volume for the warm tier.
 warmVolume:
